@@ -10,7 +10,7 @@ class CursoDAO
 
         try {
             $sql = "INSERT INTO cursos (nome, duracao, descricao) VALUES (:NOME, :DURACAO, :DESCRICAO)";
-            $stmt = pdo->prepare($sql);
+            $stmt = $pdo->prepare($sql);
             $stmt->bindValue(":NOME", $aluno->getNome());
             $stmt->bindValue(":DURACAO", $aluno->getDuracao());
             $stmt->bindValue(":DESCRICAO", $aluno->getDescricao());
@@ -45,10 +45,10 @@ class CursoDAO
         try {
             $sql = "UPDATE cursos SET nome = :NOME, duracao = :DURACAO, descricao = :DESCRICAO WHERE id = :ID";
             $stmt = $pdo->prepare($sql);
-            $stmt = bindValue(":ID", $curso->getId());
-            $stmt = bindValue(":NOME", $curso->getNome());
-            $stmt = bindValue(":DURACAO", $curso->getDuracao());
-            $stmt = bindValue(":DESCRICAO", $curso->getDescricao());
+            $stmt->bindValue(":ID", $curso->getId());
+            $stmt->bindValue(":NOME", $curso->getNome());
+            $stmt->bindValue(":DURACAO", $curso->getDuracao());
+            $stmt->bindValue(":DESCRICAO", $curso->getDescricao());
             $smt->execute();
 
             echo 'Dados alterados com sucesso!';
