@@ -1,5 +1,6 @@
 <?php
 
+require_once "config.php";
 require_once "classes/Curso.php";
 require_once "classes/CursoDAO.php";
 
@@ -9,7 +10,7 @@ require_once "classes/CursoDAO.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Criar Curso</title>
 </head>
 <body>
     <form action="" method="post">
@@ -25,15 +26,18 @@ require_once "classes/CursoDAO.php";
         <input type="submit" value="Criar">
 
         <?php
-        $curso = new Curso($_POST['nome'], $_POST['duracao'], $_POST['descricao']);
-        
-        $cursos = $curso->create();
+        if (!empty($_POST)){
+            $nome = $_POST['nome'];
+            $duracao = $_POST['duracao'];
+            $descricao = $_POST['descricao'];
 
-        if (!empty($cursos)){
+            $stmt  = $pdo->prepare("INSERT INTO cursos(nome, duracao, descricao) VALUES (:NOME, :DURACAO, :DESCRICAO)");
 
-            foreach ($cursos as $curso){
+            $stmt->bindValue(":NOME", $nome);
+            $stmt->bindValue(":DURACAO", $duracao);
+            $stmt->bindValue(":DESCRICAO", $descricao);
 
-            }
+            $stmt->execute();
         }
         ?>
     </form>

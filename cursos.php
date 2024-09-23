@@ -20,6 +20,7 @@ require_once "classes/CursoDAO.php";
                 <th>Nome</th>
                 <th>Duração (Horas)</th>
                 <th>Descrição</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>
@@ -37,6 +38,7 @@ require_once "classes/CursoDAO.php";
                     <td><?php echo $curso['nome']; ?></td>
                     <td><?php echo $curso['duracao']; ?></td>
                     <td><?php echo $curso['descricao']; ?></td>
+                    <td><a href="Editar-Curso.php">Editar </a><a href="Excluir-Curso.php"> Excluir</a></td>
                 </tr>
                 <?php
                 }
