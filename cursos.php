@@ -38,7 +38,10 @@ require_once "classes/CursoDAO.php";
                     <td><?php echo $curso['nome']; ?></td>
                     <td><?php echo $curso['duracao']; ?></td>
                     <td><?php echo $curso['descricao']; ?></td>
-                    <td><a href="Editar-Curso.php">Editar </a><a href="Excluir-Curso.php"> Excluir</a></td>
+                    <td>
+                        <button onclick="location.href='Editar-Curso.php?id=<?php echo $curso['id']; ?>'">Editar</button>
+                        <button onclick="location.href='Excluir-Curso.php?id=<?php echo $curso['id']; ?>'">Excluir </button>
+                    </td>
                 </tr>
                 <?php
                 }

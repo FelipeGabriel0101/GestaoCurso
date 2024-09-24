@@ -15,13 +15,13 @@ require_once "classes/CursoDAO.php";
 <body>
     <form action="" method="post">
         <label for="nome">Nome: </label>
-        <input type="text" name="nome"><br>
+        <input type="text" name="nome" required><br>
 
         <label for="duracao">Duração (Horas): </label>
-        <input type="text" name="duracao"><br>
+        <input type="text" name="duracao" required><br>
 
         <label for="descricao">Descrição: </label>
-        <input type="text" name="descricao"><br>
+        <input type="text" name="descricao" required><br>
 
         <input type="submit" value="Criar">
 
@@ -40,6 +40,8 @@ require_once "classes/CursoDAO.php";
             $stmt->execute();
         }
         ?>
+
+        <p><a href="cursos.php">Voltar á tabela de cursos</a></p>
     </form>
 </body>
 </html>

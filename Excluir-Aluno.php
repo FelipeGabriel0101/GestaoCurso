@@ -1,7 +1,5 @@
 <?php
 
-require_once "classes/CursoDAO.php";
-require_once "classes/Curso.php";
 require_once "config.php";
 
 ?>
@@ -10,22 +8,21 @@ require_once "config.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Excluir Curso</title>
+    <title>Document</title>
 </head>
 <body>
     <?php
 
     $id = $_GET["id"];
-
-    $stmt = $pdo->prepare("DELETE FROM cursos WHERE id = :ID");
+    $stmt = $pdo->prepare("DELETE FROM alunos WHERE id = :ID");
 
     $stmt->bindValue(":ID", $id);
 
     $stmt->execute();
 
-    echo "Registro excluído com sucesso!";
+    echo "Registro deletado com sucesso!";
     ?>
 
-    <p><a href="cursos.php">Voltar á tabela de cursos</a></p>
+    <p><a href="alunos.php">Voltar á tabela de alunos</a></p>
 </body>
 </html>
