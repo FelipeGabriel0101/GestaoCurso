@@ -1,7 +1,12 @@
-<?php
+<?php 
+
+session_start();
+ob_start();
+
 include "config.php";
 
 include "classes/CursoDAO.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +18,7 @@ include "classes/CursoDAO.php";
 </head>
 <body>
     <p><a href="cursos.php">Cursos</a><br>
-        <a href="alunos.php">Alunos</a></p>
+        <a href="alunos.php">Alunos</a><br>
+    </p>
 </body>
-
 </html>

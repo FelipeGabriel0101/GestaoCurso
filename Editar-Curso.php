@@ -3,6 +3,21 @@
 require_once "classes/Curso.php";
 require_once "config.php";
 
+$id = $_GET['id'];
+
+try{
+    $stmt = $pdo->prepare("SELECT * FROM cursos WHERE id = :ID");
+
+    $stmt->bindValue(":ID", $id);
+    $stmt->execute();
+    
+    $dados = $stmt->fetch(PDO::FETCH_ASSOC);
+
+} catch(PDOException $e){
+    echo $e->getMessage();
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -19,13 +34,13 @@ require_once "config.php";
         <input type="text" value="<?php echo $_GET['id']?>" readonly><br>
 
         <label for="nome">Nome: </label>
-        <input type="text" name="nome" required><br>
+        <input type="text" name="nome" value="<?php echo $dados['nome'] ?>" required><br>
 
         <label for="duracao">Duração (Horas): </label>
-        <input type="text" name="duracao" required><br>
+        <input type="text" name="duracao" value="<?php echo $dados['duracao']?>"required><br>
 
         <label for="descricao">Descrição: </label>
-        <input type="text" name="descricao" required><br>
+        <input type="text" name="descricao" value="<?php echo $dados['descricao']?>"required><br>
 
         <input type="submit" value="Editar">
     </form>
