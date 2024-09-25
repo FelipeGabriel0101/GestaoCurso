@@ -52,5 +52,7 @@ require_once "config.php";
     }
     ?>
 
+    <p><a href="cursos.php">Voltar á tabela de cursos</a></p>
+
 </body>
 </html>
