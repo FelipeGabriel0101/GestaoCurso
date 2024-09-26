@@ -16,7 +16,10 @@ include_once 'config.php';
 <body>
 
     <?php
-    //echo password_hash($_POST['password'], PASSWORD_DEFAULT) . "<br>";
+    if ($_POST){
+     //password_hash($_POST['password'], PASSWORD_DEFAULT) . "<br>";
+    }
+   
     ?>
 
     <?php
@@ -39,15 +42,18 @@ include_once 'config.php';
             $row_user = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if ($password == $row_user['password']){
+                $_SESSION['username'];
+                $_SESSION['password'];
+                
                 header("Location: index.php");
 
             } else {
 
-                $_SESSION['msg'] = "Erro: Usuário ou senha inválida!";
+                $_SESSION['msg'] = "<p style='color:red'>Erro: Usuário ou senha inválida!</p>";
             }
         } else {
 
-            $_SESSION['msg'] = "Erro: Usuário ou senha inválida!";
+            $_SESSION['msg'] = "<p style='color:red'>Erro: Usuário ou senha inválida!</p>";
         }
 
         if(isset($_SESSION['msg'])){
