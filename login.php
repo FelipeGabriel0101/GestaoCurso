@@ -24,8 +24,8 @@ include_once 'config.php';
 
     <?php
     if ($_POST){
-        $username = $_POST["username"];
-        $password = $_POST["password"];
+        $_SESSION["username"] = $_POST["username"];
+        $_SESSION["password"] = $_POST["password"];
         $SendLogin = $_POST["SendLogin"];
     }
     
@@ -33,7 +33,7 @@ include_once 'config.php';
     if(!empty($SendLogin)){
         
         $stmt = $pdo->prepare("SELECT * FROM admins WHERE username = :USERNAME LIMIT 1");
-        $stmt->bindValue(":USERNAME", $username);
+        $stmt->bindValue(":USERNAME", $_SESSION["username"]);
 
         $stmt->execute();
 
@@ -41,9 +41,7 @@ include_once 'config.php';
 
             $row_user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            if ($password == $row_user['password']){
-                $_SESSION['username'];
-                $_SESSION['password'];
+            if ($_SESSION["password"] == $row_user['password']){
                 
                 header("Location: index.php");
 
@@ -63,7 +61,7 @@ include_once 'config.php';
 
     }
     ?>
-    <form action="" method="post">
+        <form action="" method="post">
         <label for="username">Usuário: </label>
         <input type="text" name="username" required><br>
 
