@@ -35,7 +35,7 @@ class Curso
             throw new Exception("Duração é obrigatória.");
         }
 
-        $this->$duracao = $duracao;
+        $this->duracao = $duracao;
         
     }
 
