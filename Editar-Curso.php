@@ -48,22 +48,11 @@ try{
     <?php
     if (!empty($_POST)){
 
-        $id = $_GET["id"];
-        $nome = $_POST["nome"];
-        $duracao = $_POST["duracao"];
-        $descricao = $_POST["descricao"];
+        $curso = new Curso($_GET['id'], $_POST['nome'], $_POST['email'], $_POST['idade']);
+                
+        $cursoDAO = new CursoDAO();
 
-        $sql = "UPDATE cursos SET nome = :NOME, duracao = :DURACAO, descricao = :DESCRICAO WHERE
-            id = :ID";
-
-        $stmt = $pdo->prepare($sql);
-
-        $stmt->bindValue(":NOME", $nome);
-        $stmt->bindValue(":DURACAO", $duracao);
-        $stmt->bindValue(":DESCRICAO", $descricao);
-        $stmt->bindValue(":ID", $id);
-
-        $stmt->execute();
+        $cursoDAO->update($curso);
     }
     ?>
 

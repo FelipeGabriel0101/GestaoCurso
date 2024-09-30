@@ -1,12 +1,13 @@
 <?php
 
 require_once 'classes/Curso.php';
+require_once 'classes/Conexao.php';
 
 class CursoDAO
 {
     public function create(Curso $curso)
     {
-        require_once './config.php';
+        $pdo = Conexao::conectar();
 
         try {
             $sql = "INSERT INTO cursos (nome, duracao, descricao) VALUES (:NOME, :DURACAO, :DESCRICAO)";
@@ -24,7 +25,7 @@ class CursoDAO
 
     public function read()
     {
-        require_once './config.php';
+        $pdo = Conexao::conectar();
 
         try {
             $sql = "SELECT * FROM cursos";
@@ -40,7 +41,7 @@ class CursoDAO
 
     public function update(Curso $curso)
     {
-        require_once './config.php';
+        $pdo = Conexao::conectar();
 
         try {
             $sql = "UPDATE cursos SET nome = :NOME, duracao = :DURACAO, descricao = :DESCRICAO WHERE id = :ID";
@@ -59,7 +60,7 @@ class CursoDAO
 
     public static function delete($id)
     {
-        require_once './config.php';
+        $pdo = Conexao::conectar();
 
         try {
             $query = 'DELETE FROM cursos WHERE id = :ID';
@@ -75,7 +76,7 @@ class CursoDAO
 
     public static function search($id)
     {
-        require_once './config.php';
+        $pdo = Conexao::conectar();
 
         try {
             $sql = "SELECT * FROM cursos WHERE id = :ID";

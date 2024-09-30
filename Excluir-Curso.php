@@ -2,7 +2,6 @@
 
 require_once "classes/CursoDAO.php";
 require_once "classes/Curso.php";
-require_once "config.php";
 
 ?>
 <!DOCTYPE html>
@@ -15,17 +14,9 @@ require_once "config.php";
 <body>
     <?php
 
-    $id = $_GET["id"];
+    CursoDAO::delete($_GET['id']);
 
-    $stmt = $pdo->prepare("DELETE FROM cursos WHERE id = :ID");
-
-    $stmt->bindValue(":ID", $id);
-
-    $stmt->execute();
-
-    echo "Registro excluído com sucesso!";
     ?>
-
     <p><a href="cursos.php">Voltar á tabela de cursos</a></p>
 </body>
 </html>

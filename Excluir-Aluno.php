@@ -13,13 +13,8 @@ require_once "config.php";
 <body>
     <?php
 
-    $id = $_GET["id"];
-    $stmt = $pdo->prepare("DELETE FROM alunos WHERE id = :ID");
-
-    $stmt->bindValue(":ID", $id);
-
-    $stmt->execute();
-
+    AlunoDAO::delete($_GET['id']);
+    
     echo "Registro deletado com sucesso!";
     ?>
 

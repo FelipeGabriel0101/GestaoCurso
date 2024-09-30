@@ -1,6 +1,9 @@
 <?php
 
-require_once "config.php";
+require_once "classes/Conexao.php";
+require_once "classes/AlunoDAO.php";
+
+$pdo = Conexao::conectar();
 
 ?>
 <!DOCTYPE html>
@@ -28,19 +31,17 @@ require_once "config.php";
     </form>
     <?php
         if (!empty($_POST)){
-            $nome = $_POST["nome"];
-            $email = $_POST["email"];
-            $telefone = $_POST["telefone"];
-            $id_curso = $_POST["id_curso"];
+            try {
 
-            $stmt = $pdo->prepare("INSERT INTO alunos(nome, email, telefone, id_curso) VALUES (:NOME, :EMAIL, :TELEFONE, :ID_CURSO)");
+                $aluno = new Aluno(null, $_POST["nome"], $_POST["email"], $_POST["telefone"], $_POST["id_curso"]);
 
-            $stmt->bindValue(":NOME", $nome);
-            $stmt->bindValue(":EMAIL", $email);
-            $stmt->bindValue(":TELEFONE", $telefone);
-            $stmt->bindValue(":ID_CURSO", $id_curso);
+            $alunoDAO = new AlunoDAO();
 
-            $stmt->execute();
+            $alunoDAO->create($aluno);
+
+            } catch (Exception $e) {
+                echo "Erro: " . $e->getMessage();
+            }
         }
     ?>
 

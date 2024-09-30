@@ -2,6 +2,10 @@
 
 require_once "classes/AlunoDAO.php";
 
+$id = 5;
+
+$procura = AlunoDAO::search($id);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,6 +29,7 @@ require_once "classes/AlunoDAO.php";
         </thead>
         <tbody>
             <?php
+            
             $aluno = new AlunoDAO();
 
             $alunos = $aluno->read();

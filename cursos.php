@@ -1,6 +1,7 @@
 <?php
 
 require_once "classes/CursoDAO.php";
+require_once 'classes/Conexao.php';
 
 ?>
 <!DOCTYPE html>

@@ -1,19 +1,20 @@
 <?php
 
 require_once 'classes/Aluno.php';
+require_once 'classes/Conexao.php';
 
 class AlunoDAO
 {
     public function create(Aluno $aluno)
     {
-        require_once './config.php';
+        $pdo = Conexao::conectar();
 
         try {
             $sql = "INSERT INTO alunos (nome, email, telefone) VALUES (:NOME, :EMAIL, :TELEFONE)";
             $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(":NOME", $curso->getNome());
-            $stmt->bindValue(":EMAIL", $curso->getEmail());
-            $stmt->bindValue(":TELEFONE", $curso->getTelefone());
+            $stmt->bindValue(":NOME", $aluno->getNome());
+            $stmt->bindValue(":EMAIL", $aluno->getEmail());
+            $stmt->bindValue(":TELEFONE", $aluno->getTelefone());
             $stmt->execute();
 
             echo 'Aluno cadastrado com sucesso!';
@@ -24,7 +25,7 @@ class AlunoDAO
 
     public function read()
     {
-        require_once './config.php';
+        $pdo = Conexao::conectar();
 
         try {
             $sql = "SELECT * FROM alunos";
@@ -40,7 +41,7 @@ class AlunoDAO
 
     public function update(Aluno $aluno)
     {
-        require_once './config.php';
+        $pdo = Conexao::conectar();
 
         try {
             $sql = "UPDATE alunos SET nome = :NOME, email = :EMAIL, telefone = :TELEFONE WHERE id = :ID";
@@ -59,7 +60,7 @@ class AlunoDAO
 
     public static function delete($id)
     {
-        require_once './config.php';
+        $pdo = Conexao::conectar();
 
         try {
             $query = 'DELETE FROM alunos WHERE id = :ID';
