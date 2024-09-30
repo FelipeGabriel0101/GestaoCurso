@@ -1,6 +1,7 @@
 <?php
 
 require_once "classes/Curso.php";
+require_once "classes/CursoDAO.php";
 require_once "config.php";
 
 $id = $_GET['id'];
@@ -48,7 +49,7 @@ try{
     <?php
     if (!empty($_POST)){
 
-        $curso = new Curso($_GET['id'], $_POST['nome'], $_POST['email'], $_POST['idade']);
+        $curso = new Curso($_GET['id'], $_POST['nome'], $_POST['duracao'], $_POST['descricao']);
                 
         $cursoDAO = new CursoDAO();
 

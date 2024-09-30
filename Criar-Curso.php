@@ -18,7 +18,7 @@ require_once "classes/CursoDAO.php";
         <input type="text" name="nome" required><br>
 
         <label for="duracao">Duração (Horas): </label>
-        <input type="text" name="duracao" required><br>
+        <input type="number" name="duracao" required><br>
 
         <label for="descricao">Descrição: </label>
         <input type="text" name="descricao" required><br>
@@ -27,17 +27,16 @@ require_once "classes/CursoDAO.php";
 
         <?php
         if (!empty($_POST)){
-            $nome = $_POST['nome'];
-            $duracao = $_POST['duracao'];
-            $descricao = $_POST['descricao'];
 
-            $stmt  = $pdo->prepare("INSERT INTO cursos(nome, duracao, descricao) VALUES (:NOME, :DURACAO, :DESCRICAO)");
+            $curso = new Curso(null, $_POST['nome'], $_POST['duracao'], $_POST['descricao']);
 
-            $stmt->bindValue(":NOME", $nome);
-            $stmt->bindValue(":DURACAO", $duracao);
-            $stmt->bindValue(":DESCRICAO", $descricao);
+            echo $_POST["duracao"] . "<br>";
 
-            $stmt->execute();
+            var_dump($curso);
+
+            $cursoDAO = new CursoDAO();
+
+            $cursoDAO->create($curso);
         }
         ?>
 

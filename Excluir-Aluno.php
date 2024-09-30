@@ -15,7 +15,6 @@ require_once "config.php";
 
     AlunoDAO::delete($_GET['id']);
     
-    echo "Registro deletado com sucesso!";
     ?>
 
     <p><a href="alunos.php">Voltar á tabela de alunos</a></p>

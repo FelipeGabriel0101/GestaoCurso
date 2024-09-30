@@ -50,7 +50,7 @@ class AlunoDAO
             $stmt->bindValue(":NOME", $aluno->getNome());
             $stmt->bindValue(":EMAIL", $aluno->getEmail());
             $stmt->bindValue(":TELEFONE", $aluno->getTelefone());
-            $smt->execute();
+            $stmt->execute();
 
             echo 'Dados alterados com sucesso!';
         } catch (PDOException $e) {

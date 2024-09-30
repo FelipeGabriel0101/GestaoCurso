@@ -50,7 +50,7 @@ class CursoDAO
             $stmt->bindValue(":NOME", $curso->getNome());
             $stmt->bindValue(":DURACAO", $curso->getDuracao());
             $stmt->bindValue(":DESCRICAO", $curso->getDescricao());
-            $smt->execute();
+            $stmt->execute();
 
             echo 'Dados alterados com sucesso!';
         } catch (PDOException $e) {
