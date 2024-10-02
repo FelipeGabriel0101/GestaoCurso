@@ -1,6 +1,7 @@
 <?php
 
-require_once "config.php";
+require_once "classes/AlunoDAO.php";
+require_once "classes/Conexao.php";
 
 ?>
 <!DOCTYPE html>

@@ -37,7 +37,7 @@ require_once 'classes/Conexao.php';
                 <tr>
                     <td><?php echo $curso['id']; ?></td>
                     <td><?php echo $curso['nome']; ?></td>
-                    <td><?php echo $curso['duracao']; ?></td>
+                    <td><?php echo $curso['duracao'] . " Horas"; ?></td>
                     <td><?php echo $curso['descricao']; ?></td>
                     <td>
                         <button onclick="location.href='Editar-Curso.php?id=<?php echo $curso['id']; ?>'">Editar</button>

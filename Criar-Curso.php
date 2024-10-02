@@ -30,10 +30,6 @@ require_once "classes/CursoDAO.php";
 
             $curso = new Curso(null, $_POST['nome'], $_POST['duracao'], $_POST['descricao']);
 
-            echo $_POST["duracao"] . "<br>";
-
-            var_dump($curso);
-
             $cursoDAO = new CursoDAO();
 
             $cursoDAO->create($curso);

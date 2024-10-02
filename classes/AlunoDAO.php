@@ -10,11 +10,12 @@ class AlunoDAO
         $pdo = Conexao::conectar();
 
         try {
-            $sql = "INSERT INTO alunos (nome, email, telefone) VALUES (:NOME, :EMAIL, :TELEFONE)";
+            $sql = "INSERT INTO alunos (nome, email, telefone, id_curso) VALUES (:NOME, :EMAIL, :TELEFONE, :ID_CURSO)";
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(":NOME", $aluno->getNome());
             $stmt->bindValue(":EMAIL", $aluno->getEmail());
             $stmt->bindValue(":TELEFONE", $aluno->getTelefone());
+            $stmt->bindValue(":ID_CURSO", $aluno->getId_curso());
             $stmt->execute();
 
             echo 'Aluno cadastrado com sucesso!';
