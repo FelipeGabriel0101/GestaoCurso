@@ -11,16 +11,33 @@ include_once 'config.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
     <title>Login</title>
 </head>
-<body>
+<body class="login-body">
 
-    <?php
-    if ($_POST){
-     //password_hash($_POST['password'], PASSWORD_DEFAULT) . "<br>";
-    }
-   
-    ?>
+    <div class="login-box">
+        <div class="login-header">
+            <header>Login</header>
+        </div>
+        <form action="" method="post">
+
+        <div class="input-box"> 
+            <input type="text" class="input-field" placeholder="Usuário" name="username" required><br>
+        </div> 
+        <div class="input-box">
+            <input type="password" class="input-field" placeholder="Senha" name="password" required><br>
+        </div>
+        <div class="input-submit">
+            <input type="submit" class="submit-btn" name="SendLogin">
+            <label for="submit">Entrar</label>
+        </div>
+        </form>
+
+        <div class="sign-up-link">
+        <p>Não tem uma conta? <a href="cadastrar.php">Cadastrar</a></p>
+        </div>
+    </div>
 
     <?php
     if ($_POST){
@@ -28,7 +45,6 @@ include_once 'config.php';
         $_SESSION["password"] = $_POST["password"];
         $SendLogin = $_POST["SendLogin"];
     }
-    
     
     if(!empty($SendLogin)){
         
@@ -61,15 +77,5 @@ include_once 'config.php';
 
     }
     ?>
-        <form action="" method="post">
-        <label for="username">Usuário: </label>
-        <input type="text" name="username" required><br>
-
-        <label for="password">Senha: </label>
-        <input type="password" name="password" required><br>
-
-        <input type="submit" value="Login" name="SendLogin"><br>
-    </form>
-    <p><a href="registrar.php">Criar Conta</a></p>
 </body>
 </html>

@@ -9,18 +9,31 @@ require_once "config.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
     <title>Criar Conta</title>
 </head>
-<body>
-    <form action="" method="post">
-        <label for="username">Usuário: </label>
-        <input type="text" name="username" required><br>
+<body class="login-body">
+    <div class="login-box">
+        <div class="login-header">
+            <header>Registrar</header>
+        </div>
+        <form action="" method="post">
 
-        <label for="password">Senha: </label>
-        <input type="password" name="password" required><br>
+            <div class="input-box">
+                <input type="text" class="input-field" placeholder="Usuário" name="username" required><br>
+            </div>
 
-        <input type="submit" value="Criar Conta">
-    </form>
+            <div class="input-box">
+                <input type="password" class="input-field" placeholder="Senha"name="password" required><br>
+            </div>
+
+            <div class="input-submit">
+                <input type="submit" class="submit-btn">
+                <label for="submit">Criar Conta</label>
+            </div>
+        </div>
+        </form>
+
     <?php
     if (!empty($_POST)){
         $username = $_POST["username"];
