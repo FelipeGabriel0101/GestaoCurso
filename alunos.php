@@ -12,9 +12,21 @@ $procura = AlunoDAO::search($id);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
     <title>Alunos</title>
 </head>
 <body>
+    <header class="header">
+        <a href="" class="logo">Logo</a>
+
+        <nav class="navbar">
+            <a href="index.php">Home</a>
+            <a href="cursos.php">Cursos</a>
+            <a href="alunos.php">Alunos</a>
+            <a href="logout.php">Logout</a>
+        </nav>
+    </header>
+
     <p><a href="Criar-Aluno.php">Criar novo Aluno</a></p>
     <table border=1>
         <thead>

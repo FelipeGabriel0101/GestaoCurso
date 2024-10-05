@@ -9,9 +9,21 @@ require_once 'classes/Conexao.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
     <title>Cursos</title>
 </head>
 <body>
+    <header class="header">
+        <a href="" class="logo">Logo</a>
+
+        <nav class="navbar">
+            <a href="index.php">Home</a>
+            <a href="cursos.php">Cursos</a>
+            <a href="alunos.php">Alunos</a>
+            <a href="logout.php">Logout</a>
+        </nav>
+    </header>
+    
     <h2>Cursos</h2>
     <p><a href="Criar-Curso.php">Criar novo curso</a></p>
     <table border=1>
@@ -40,8 +52,8 @@ require_once 'classes/Conexao.php';
                     <td><?php echo $curso['duracao'] . " Horas"; ?></td>
                     <td><?php echo $curso['descricao']; ?></td>
                     <td>
-                        <button onclick="location.href='Editar-Curso.php?id=<?php echo $curso['id']; ?>'">Editar</button>
-                        <button onclick="location.href='Excluir-Curso.php?id=<?php echo $curso['id']; ?>'">Excluir </button>
+                        <button class="edit-btn" onclick="location.href='Editar-Curso.php?id=<?php echo $curso['id']; ?>'">Editar</button>
+                        <button class="delete-btn" onclick="location.href='Excluir-Curso.php?id=<?php echo $curso['id']; ?>'">Excluir </button>
                     </td>
                 </tr>
                 <?php

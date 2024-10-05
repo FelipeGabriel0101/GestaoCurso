@@ -18,9 +18,16 @@ if (empty($_SESSION["username"]) && empty($_SESSION["password"])){
     <title>Gestão de Cursos</title>
 </head>
 <body>
-    <p><a href="cursos.php">Cursos</a><br>
-        <a href="alunos.php">Alunos</a><br>
-        <a href="logout.php">Logout</a>
-    </p>
+    <header class="header">
+        <a href="" class="logo">Logo</a>
+
+        <nav class="navbar">
+            <a href="index.php">Home</a>
+            <a href="cursos.php">Cursos</a>
+            <a href="alunos.php">Alunos</a>
+            <a href="logout.php">Logout</a>
+        </nav>
+    </header>
+
 </body>
 </html>
