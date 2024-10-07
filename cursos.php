@@ -14,7 +14,7 @@ require_once 'classes/Conexao.php';
 </head>
 <body>
     <header class="header">
-        <a href="" class="logo">Logo</a>
+        <p class="logo">Gestão de Cursos</p>
 
         <nav class="navbar">
             <a href="index.php">Home</a>
@@ -25,8 +25,11 @@ require_once 'classes/Conexao.php';
     </header>
     
     <h2>Cursos</h2>
-    <p><a href="Criar-Curso.php">Criar novo curso</a></p>
-    <table border=1>
+    <hr>
+    <div class="create-btn" onclick="location.href='Criar-Curso.php'">
+        <p>Criar novo curso</p>
+    </div>
+    <table class="table">
         <thead>
             <tr>
                 <th>ID</th>

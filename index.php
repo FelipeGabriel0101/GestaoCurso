@@ -19,7 +19,7 @@ if (empty($_SESSION["username"]) && empty($_SESSION["password"])){
 </head>
 <body>
     <header class="header">
-        <a href="" class="logo">Logo</a>
+        <p class="logo">Gestão de Cursos</p>
 
         <nav class="navbar">
             <a href="index.php">Home</a>

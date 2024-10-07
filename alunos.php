@@ -17,7 +17,7 @@ $procura = AlunoDAO::search($id);
 </head>
 <body>
     <header class="header">
-        <a href="" class="logo">Logo</a>
+        <p class="logo">Gestão de Cursos</p>
 
         <nav class="navbar">
             <a href="index.php">Home</a>
@@ -27,8 +27,12 @@ $procura = AlunoDAO::search($id);
         </nav>
     </header>
 
-    <p><a href="Criar-Aluno.php">Criar novo Aluno</a></p>
-    <table border=1>
+    <h2>Alunos</h2>
+    <hr>
+    <div class="create-btn" onclick="location.href='Criar-Aluno.php'">
+        <p>Criar novo aluno</p>
+    </div>
+    <table class="table">
         <thead>
             <tr>
                 <th>ID</th>
