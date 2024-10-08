@@ -61,8 +61,8 @@ $procura = AlunoDAO::search($id);
                     <td><?php echo $aluno['telefone']; ?></td>
                     <td><?php echo $aluno['id_curso'] ?></td>
                     <td>
-                    <button onclick="location.href='Editar-Aluno.php?id=<?php echo $aluno['id']; ?>'">Editar</button>
-                        <button onclick="location.href='Excluir-Aluno.php?id=<?php echo $aluno['id']; ?>'">Excluir </button>
+                        <button class="edit-btn" onclick="location.href='Editar-Aluno.php?id=<?php echo $aluno['id']; ?>'">Editar</button>
+                        <button class="delete-btn" onclick="location.href='Excluir-Aluno.php?id=<?php echo $aluno['id']; ?>'">Excluir </button>
                     </td>
                 </tr>
                 <?php
