@@ -48,7 +48,7 @@ require_once "config.php";
             $stmt->execute();
 
             echo "<br>Conta criada com sucesso!";
-            header("Location:login.php");
+            header("Location:index.php");
 
         } catch(PDOException $e){
            echo $e->getMessage();

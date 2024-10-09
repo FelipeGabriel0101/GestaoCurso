@@ -1,7 +1,6 @@
 <?php 
 
 session_start();
-ob_start();
 
 include_once 'config.php';
 
@@ -33,10 +32,6 @@ include_once 'config.php';
             <label for="submit">Entrar</label>
         </div>
         </form>
-
-        <div class="sign-up-link">
-        <p>Não tem uma conta? <a href="cadastrar.php">Cadastrar</a></p>
-        </div>
     </div>
 
     <?php
