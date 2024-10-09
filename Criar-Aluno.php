@@ -2,6 +2,7 @@
 
 require_once "classes/Conexao.php";
 require_once "classes/AlunoDAO.php";
+require_once "classes/CursoDAO.php";
 
 $pdo = Conexao::conectar();
 
@@ -26,8 +27,25 @@ $pdo = Conexao::conectar();
             <label for="telefone">Telefone: </label>
             <input class="input" type="number" name="telefone" required><br>
 
-            <label for="id_curso">ID curso: </label>
-            <input class="input" type="number" name="id_curso" required><br>
+            <label for="id_curso2">ID curso: </label>
+            
+            <select name="id_curso" id="id_curso">
+                <?php
+                $curso = new CursoDAO();
+
+                $cursos = $curso->read();
+    
+                if (!empty($cursos)) {
+                ?>
+                    <?php
+                    foreach ($cursos as $curso) {
+                    ?>
+                <option value="<?php echo $curso["id"] ?>"><?php echo $curso["nome"] ?></option>
+                <?php
+                    }
+                }
+                ?>
+            </select>
 
             <input class="add-btn" type="submit" value="Criar">
 
