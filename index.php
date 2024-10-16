@@ -2,12 +2,14 @@
 
 session_start();
 
-require_once "classes/Curso.php";
+require_once "classes/Conexao.php";
+
+$pdo = Conexao::conectar();
 
 if (empty($_SESSION["username"]) && empty($_SESSION["password"])){
     header("Location:login.php");
-}
 
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +20,7 @@ if (empty($_SESSION["username"]) && empty($_SESSION["password"])){
     <link rel="stylesheet" href="style/style.css">
     <title>Gestão de Cursos</title>
 </head>
-<body>
+<body class="index-body">
     <header class="header">
         <p class="logo">Gestão de Cursos</p>
 

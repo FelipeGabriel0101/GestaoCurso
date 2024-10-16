@@ -1,9 +1,12 @@
 <?php
 
 require_once "classes/Aluno.php";
-require_once "config.php";
+require_once "classes/Conexao.php";
+require_once "classes/CursoDAO.php";
 
 $id = $_GET['id'];
+
+$pdo = Conexao::conectar();
 
 try{
     $stmt = $pdo->prepare("SELECT * FROM alunos WHERE id = :ID");
@@ -24,28 +27,50 @@ try{
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
     <title>Editar Aluno</title>
 </head>
-<body>
-    <form action="" method="post">
+<div class="login-box">
+    <body class="login-body">
+        <form action="" method="post">
 
-        <label for="id">Id: </label>
-        <input type="text" value="<?php echo $_GET['id']?>" readonly><br>
+            <label for="id">Id: </label>
+            <input class="input" type="text" value="<?php echo $_GET['id']?>" readonly><br>
 
-        <label for="nome">Nome: </label>
-        <input type="text" name="nome" value="<?php echo $dados['nome'] ?>" required><br>
+            <label for="nome">Nome: </label>
+            <input class="input" type="text" name="nome" value="<?php echo $dados['nome'] ?>" required><br>
 
-        <label for="email">Email</label>
-        <input type="text" name="email" value="<?php echo $dados['email']?>"required><br>
+            <label for="email">Email</label>
+            <input class="input" type="email" name="email" value="<?php echo $dados['email']?>"required><br>
 
-        <label for="telefone">Telefone: </label>
-        <input type="number" name="telefone" value="<?php echo $dados['telefone']?>"required><br>
+            <label for="telefone">Telefone: </label>
+            <input class="input" type="number" name="telefone" value="<?php echo $dados['telefone']?>"required><br>
 
-        <label for="id_curso">ID curso: </label>
-        <input type="number" name="id_curso" value="<?php echo $dados['id_curso'] ?>"><br>
+            <label for="id_curso">Curso: </label>
+            <select name="curso" id="curso">
+                <?php
+                $curso = new CursoDAO();
 
-        <input type="submit" value="Editar">
-</form>
+                $cursos = $curso->read();
+    
+                if (!empty($cursos)) {
+                ?>
+                    <?php
+                    foreach ($cursos as $curso) {
+                    ?>
+                <option value="<?php echo $curso["id"] ?>"><?php echo $curso["nome"] ?></option>
+                <?php
+                    }
+                }
+                ?>
+            </select>
+
+            <input class="add-btn" type="submit" value="Editar">
+    </form>
+    <div class="link">
+        <p><a href="alunos.php">Voltar á tabela de alunos</a></p>
+    </div>
+</div>
 <?php
     if (!empty($_POST)){
 
@@ -68,9 +93,11 @@ try{
 
 
         $stmt->execute();
+
+        header('Location: alunos.php');
     }
     ?>
 
-    <p><a href="alunos.php">Voltar á tabela de alunos</a></p>
+    
 </body>
 </html>

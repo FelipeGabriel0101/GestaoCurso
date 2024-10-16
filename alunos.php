@@ -1,10 +1,7 @@
 <?php
 
 require_once "classes/AlunoDAO.php";
-
-$id = 5;
-
-$procura = AlunoDAO::search($id);
+require_once "classes/CursoDAO.php";
 
 ?>
 <!DOCTYPE html>
@@ -12,6 +9,7 @@ $procura = AlunoDAO::search($id);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="style/style.css">
     <title>Alunos</title>
 </head>
@@ -23,23 +21,23 @@ $procura = AlunoDAO::search($id);
             <a href="index.php">Home</a>
             <a href="cursos.php">Cursos</a>
             <a href="alunos.php">Alunos</a>
-            <a href="logout.php">Logout</a>
+            <button class="btn btn-warning" onclick="location.href='cadastrar.php'">Criar Administrador</button>
+            <button class="btn btn-danger" onclick="location.href='logout.php'">Logout</button>
         </nav>
     </header>
 
     <h2>Alunos</h2>
     <hr>
-    <div class="create-btn" onclick="location.href='Criar-Aluno.php'">
-        <p>Criar novo aluno</p>
-    </div>
-    <table class="table">
+    <button class="btn btn-success" onclick="location.href='Criar-Aluno.php'">Criar Novo Aluno</button>
+    <table class="table-layout">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
                 <th>Email</th>
                 <th>Telefone</th>
-                <th>id_curso</th>
+                <th>Curso</th>
+                <th>ID Curso</th>
                 <th>Ações</th>
             </tr>
         </thead>
@@ -50,6 +48,10 @@ $procura = AlunoDAO::search($id);
 
             $alunos = $aluno->read();
 
+            $curso = new CursoDAO();
+
+            $cursos = $curso->read();
+
             if (!empty($alunos)) {
 
                 foreach ($alunos as $aluno) {
@@ -59,10 +61,17 @@ $procura = AlunoDAO::search($id);
                     <td><?php echo $aluno['nome']; ?></td>
                     <td><?php echo $aluno['email']; ?></td>
                     <td><?php echo $aluno['telefone']; ?></td>
+                    <?php
+                    foreach ($cursos as $curso) {
+                        ?>
+                        <td><?php echo $curso['nome']; ?></td>
+                    <?php
+                    }
+                    ?>
                     <td><?php echo $aluno['id_curso'] ?></td>
                     <td>
-                        <button class="edit-btn" onclick="location.href='Editar-Aluno.php?id=<?php echo $aluno['id']; ?>'">Editar</button>
-                        <button class="delete-btn" onclick="location.href='Excluir-Aluno.php?id=<?php echo $aluno['id']; ?>'">Excluir </button>
+                        <button class="btn btn-warning" onclick="location.href='Editar-Aluno.php?id=<?php echo $aluno['id']; ?>'">Editar</button>
+                        <button class="btn btn-danger" onclick="location.href='Excluir-Aluno.php?id=<?php echo $aluno['id']; ?>'">Excluir </button>
                     </td>
                 </tr>
                 <?php

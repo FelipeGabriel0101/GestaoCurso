@@ -9,8 +9,8 @@
 }
 
 .index-body{
-    min-height: 100vh;
-    background-color: rgb(212, 245, 212);
+    min-height: 100%;
+    background-image: url(img\background.jpg);
 }
 
 .header{
@@ -200,7 +200,7 @@
     display: inline-block;
 }
 
-.table {
+.table-layout {
     border-collapse: collapse;
     margin: 10px 0;
     font-size: 0.9em;
@@ -209,27 +209,27 @@
     margin-right: auto;
 }
 
-.table thead tr {
+.table-layout thead tr {
     background-color: #009879;
     color: #fff;
     text-align: left;
     font-weight: bold;
 }
 
-.table th,
-.table td {
+.table-layout th,
+.table-layout td {
     padding: 12px 15px;
 }
 
-.table tbody tr {
+.table-layout tbody tr {
     border-bottom: 1px solid #ddd;
 }
 
-.table tbody tr:nth-of-type(even){
+.table-layout tbody tr:nth-of-type(even){
     background-color: #f3f3f3;
 }
 
-.table tbody tr:last-of-type {
+.table-layout tbody tr:last-of-type {
     border-bottom: 2px solid #009879;
 }
 

@@ -22,14 +22,14 @@ $pdo = Conexao::conectar();
             <input class="input" type="text" name="nome" required><br>
 
             <label for="email">Email: </label>
-            <input class="input" type="text" name="email" required><br>
+            <input class="input" type="email" name="email" required><br>
 
             <label for="telefone">Telefone: </label>
             <input class="input" type="number" name="telefone" required><br>
 
-            <label for="id_curso2">ID curso: </label>
+            <label for="curso">Curso: </label>
             
-            <select name="id_curso" id="id_curso">
+            <select name="curso" id="curso">
                 <?php
                 $curso = new CursoDAO();
 
@@ -58,7 +58,7 @@ $pdo = Conexao::conectar();
         if (!empty($_POST)){
             try {
 
-                $aluno = new Aluno(null, $_POST["nome"], $_POST["email"], $_POST["telefone"], $_POST["id_curso"]);
+                $aluno = new Aluno(null, $_POST["nome"], $_POST["email"], $_POST["telefone"], $_POST["curso"]);
 
             $alunoDAO = new AlunoDAO();
 

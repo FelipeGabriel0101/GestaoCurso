@@ -2,7 +2,9 @@
 
 session_start();
 
-include_once 'config.php';
+require_once "classes/Conexao.php";
+
+$pdo = Conexao::conectar();
 
 ?>
 <!DOCTYPE html>
