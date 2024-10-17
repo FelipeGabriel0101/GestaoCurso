@@ -21,6 +21,7 @@ if (empty($_SESSION["username"]) && empty($_SESSION["password"])){
     <title>Gestão de Cursos</title>
 </head>
 <body class="index-body">
+    
     <header class="header">
         <p class="logo">Gestão de Cursos</p>
 
@@ -31,8 +32,8 @@ if (empty($_SESSION["username"]) && empty($_SESSION["password"])){
             <button class="btn btn-warning" onclick="location.href='cadastrar.php'">Criar Administrador</button>
             <button class="btn btn-danger" onclick="location.href='logout.php'">Logout</button>
         </nav>
+        
     </header>
-    <h1>Sistema de <br>Gestão de Cursos</h1>
-
 </body>
+
 </html>
