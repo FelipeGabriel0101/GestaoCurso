@@ -74,19 +74,4 @@ class CursoDAO
         }
     }
 
-    public static function search($id)
-    {
-        $pdo = Conexao::conectar();
-
-        try {
-            $sql = "SELECT * FROM cursos WHERE id = :ID";
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(":ID", $id);
-            $stmt->execute();
-            return $stmt->fetch(PDO::FETCH_ASSOC);
-
-        } catch (PDOException $e) {
-            echo $e->getMessage();
-        }
-    }
 }

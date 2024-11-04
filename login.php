@@ -56,6 +56,7 @@ $pdo = Conexao::conectar();
 
             if ($_SESSION["password"] == $row_user['password']){
                 
+                $_SESSION["Logado"] = true;
                 header("Location: index.php");
 
             } else {

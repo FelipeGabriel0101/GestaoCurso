@@ -75,19 +75,4 @@ class AlunoDAO
         }
     }
 
-    public static function search($id)
-    {
-        require_once './config.php';
-
-        try {
-            $sql = "SELECT * FROM alunos WHERE id = :ID";
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(":ID", $id);
-            $stmt->execute();
-            return $stmt->fetch(PDO::FETCH_ASSOC);
-
-        } catch (PDOException $e) {
-            echo $e->getMessage();
-        }
-    }
 }

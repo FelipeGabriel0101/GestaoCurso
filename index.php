@@ -6,10 +6,10 @@ require_once "classes/Conexao.php";
 
 $pdo = Conexao::conectar();
 
-if (empty($_SESSION["username"]) && empty($_SESSION["password"])){
-    header("Location:login.php");
-
+if ($_SESSION["Logado"] == false or empty($_SESSION["Logado"])){
+    header("Location: login.php");
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

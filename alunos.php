@@ -1,7 +1,6 @@
 <?php
 
 require_once "classes/AlunoDAO.php";
-require_once "classes/CursoDAO.php";
 
 ?>
 <!DOCTYPE html>
@@ -36,7 +35,6 @@ require_once "classes/CursoDAO.php";
                 <th>Nome</th>
                 <th>Email</th>
                 <th>Telefone</th>
-                <th>Curso</th>
                 <th>ID Curso</th>
                 <th>Ações</th>
             </tr>
@@ -48,10 +46,6 @@ require_once "classes/CursoDAO.php";
 
             $alunos = $aluno->read();
 
-            $curso = new CursoDAO();
-
-            $cursos = $curso->read();
-
             if (!empty($alunos)) {
 
                 foreach ($alunos as $aluno) {
@@ -61,14 +55,7 @@ require_once "classes/CursoDAO.php";
                     <td><?php echo $aluno['nome']; ?></td>
                     <td><?php echo $aluno['email']; ?></td>
                     <td><?php echo $aluno['telefone']; ?></td>
-                    <?php
-                    foreach ($cursos as $curso) {
-                        ?>
-                        <td><?php echo $curso['nome']; ?></td>
-                    <?php
-                    }
-                    ?>
-                    <td><?php echo $aluno['id_curso'] ?></td>
+                    <td><?php echo $aluno['id_curso']; ?></td>
                     <td>
                         <button class="btn btn-warning" onclick="location.href='Editar-Aluno.php?id=<?php echo $aluno['id']; ?>'">Editar</button>
                         <button class="btn btn-danger" onclick="location.href='Excluir-Aluno.php?id=<?php echo $aluno['id']; ?>'">Excluir </button>
